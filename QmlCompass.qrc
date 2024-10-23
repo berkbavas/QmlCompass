@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/Fonts/Noto_Serif/NotoSerif-Regular.ttf</file>
+    </qresource>
+</RCC>
