@@ -1,17 +1,16 @@
 import QtQuick 2.0
 
 Canvas {
+    id: root
+    width: 1024
+    height: 1024
+
     property double outerRadius: 1024 / 2
     property double cx: outerRadius
     property double cy: outerRadius
-    property double heading: 30
+    property double heading: 0
 
     onHeadingChanged: requestPaint()
-
-    id: canvas
-    width: 1024
-    height: 1024
-    anchors.centerIn: parent
 
     onPaint: {
         var ctx = getContext("2d")

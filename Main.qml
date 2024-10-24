@@ -3,6 +3,8 @@ import QtQuick 2.0
 Window {
     width: 900
     height: 900
+    minimumHeight: 320
+    minimumWidth: 320
     visible: true
     title: "QML Compass"
 
