@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Canvas {
-    property double outerRadius: 720 / 2
+    property double outerRadius: 1024 / 2
     property double cx: outerRadius
     property double cy: outerRadius
     property double heading: 30
@@ -9,8 +9,8 @@ Canvas {
     onHeadingChanged: requestPaint()
 
     id: canvas
-    width: 720
-    height: 720
+    width: 1024
+    height: 1024
     anchors.centerIn: parent
 
     onPaint: {
@@ -35,41 +35,41 @@ Canvas {
         ctx.translate(-cx, -cy)
 
         // Red
-        const redGradient = ctx.createLinearGradient(cx - 20, 0, cx + 20, 0)
+        const redGradient = ctx.createLinearGradient(cx - 30, 0, cx + 30, 0)
         redGradient.addColorStop(0, "#ff0000")
         redGradient.addColorStop(1, "#7f0000")
 
         ctx.beginPath()
         ctx.moveTo(cx, cy)
-        ctx.arc(cx, cy, 30, Math.PI, 0)
+        ctx.arc(cx, cy, 45, Math.PI, 0)
         ctx.closePath()
         ctx.fillStyle = redGradient
         ctx.fill()
 
         ctx.beginPath()
-        ctx.moveTo(cx + 20, cy)
+        ctx.moveTo(cx + 30, cy)
         ctx.lineTo(cx, 45)
-        ctx.lineTo(cx - 20, cy)
+        ctx.lineTo(cx - 30, cy)
         ctx.closePath()
         ctx.fillStyle = redGradient
         ctx.fill()
 
         // Blue
-        const blueGradient = ctx.createLinearGradient(cx - 20, 0, cx + 20, 0)
+        const blueGradient = ctx.createLinearGradient(cx - 30, 0, cx + 30, 0)
         blueGradient.addColorStop(0, "#3465A4")
         blueGradient.addColorStop(1, "#1b3c6a")
 
         ctx.beginPath()
         ctx.moveTo(cx, cy)
-        ctx.arc(cx, cy, 30, Math.PI, 0, true)
+        ctx.arc(cx, cy, 45, Math.PI, 0, true)
         ctx.closePath()
         ctx.fillStyle = blueGradient
         ctx.fill()
 
         ctx.beginPath()
-        ctx.moveTo(cx + 20, cy)
-        ctx.lineTo(cx, 2 * cy - 45)
-        ctx.lineTo(cx - 20, cy)
+        ctx.moveTo(cx + 30, cy)
+        ctx.lineTo(cx, 2 * cy - 57.5)
+        ctx.lineTo(cx - 30, cy)
         ctx.closePath()
         ctx.fillStyle = blueGradient
         ctx.fill()
@@ -77,7 +77,7 @@ Canvas {
         // Foreground
         ctx.beginPath()
         ctx.moveTo(cx, cy)
-        ctx.arc(cx, cy, 18, 0, 2 * Math.PI)
+        ctx.arc(cx, cy, 27, 0, 2 * Math.PI)
         ctx.closePath()
         ctx.fillStyle = "#ffffff"
         ctx.fill()
@@ -99,18 +99,18 @@ Canvas {
             ctx.translate(-cx, -cy)
 
             ctx.beginPath()
-            ctx.moveTo(cx, cy - 180)
-            ctx.lineTo(cx - 15, cy)
-            ctx.lineTo(cx + 15, cy)
+            ctx.moveTo(cx, cy - 260)
+            ctx.lineTo(cx - 25, cy)
+            ctx.lineTo(cx + 25, cy)
             ctx.closePath()
             ctx.fillStyle = "#afc6c5"
             ctx.fill()
 
             ctx.textBaseline = "middle"
             ctx.textAlign = "center"
-            ctx.font = "32px 'Noto Serif'"
+            ctx.font = "48px 'Noto Serif'"
             ctx.fillStyle = "#000000"
-            ctx.fillText(labels[i], cx, cy - 200)
+            ctx.fillText(labels[i], cx, cy - 290)
 
             ctx.restore()
         }
@@ -132,18 +132,18 @@ Canvas {
             ctx.translate(-cx, -cy)
 
             ctx.beginPath()
-            ctx.moveTo(cx, cy - 220)
-            ctx.lineTo(cx - 15, cy)
-            ctx.lineTo(cx + 15, cy)
+            ctx.moveTo(cx, cy - 330)
+            ctx.lineTo(cx - 25, cy)
+            ctx.lineTo(cx + 25, cy)
             ctx.closePath()
             ctx.fillStyle = "#afc6c5"
             ctx.fill()
 
             ctx.textBaseline = "middle"
             ctx.textAlign = "center"
-            ctx.font = "64px 'Noto Serif'"
+            ctx.font = "96px 'Noto Serif'"
             ctx.fillStyle = "#000000"
-            ctx.fillText(labels[i], cx, cy - 230)
+            ctx.fillText(labels[i], cx, cy - 350)
 
             ctx.restore()
         }
@@ -164,11 +164,11 @@ Canvas {
             ctx.translate(-cx, -cy)
 
             ctx.beginPath()
-            ctx.moveTo(cx, 60)
+            ctx.moveTo(cx, 90)
             ctx.lineTo(cx, cy)
 
             ctx.strokeStyle = "#e0e0e0"
-            ctx.lineWidth = 2
+            ctx.lineWidth = 3
             ctx.stroke()
         }
 
@@ -190,8 +190,8 @@ Canvas {
     function drawInnerBorder(ctx) {
         ctx.save()
         ctx.beginPath()
-        ctx.arc(cx, cy, outerRadius - 42.5, 0, 2 * Math.PI)
-        ctx.arc(cx, cy, outerRadius - 60, 2 * Math.PI, 0)
+        ctx.arc(cx, cy, outerRadius - 70, 0, 2 * Math.PI)
+        ctx.arc(cx, cy, outerRadius - 90, 2 * Math.PI, 0)
         ctx.fillStyle = "#e0e0e0"
         ctx.fill()
         ctx.restore()
@@ -208,9 +208,9 @@ Canvas {
             ctx.translate(-cx, -cy)
             ctx.textBaseline = "middle"
             ctx.textAlign = "center"
-            ctx.font = "18px 'Noto Serif'"
+            ctx.font = "27px 'Noto Serif'"
             ctx.fillStyle = "#303030"
-            ctx.fillText(text, cx, 32.5)
+            ctx.fillText(text, cx, 52)
             ctx.restore()
         }
 
@@ -221,8 +221,8 @@ Canvas {
         ctx.save()
 
         const outerBorderColor = "#000000"
-        const borderWidth = 3
-        const borderHeight = 16
+        const borderWidth = 5
+        const borderHeight = 24
 
         const innerRadius = outerRadius - borderHeight
         ctx.strokeStyle = outerBorderColor

@@ -1,8 +1,8 @@
 import QtQuick 2.0
 
 Window {
-    width: 800
-    height: 800
+    width: 900
+    height: 900
     visible: true
     title: "QML Compass"
 
@@ -10,11 +10,11 @@ Window {
         source: "qrc:/Resources/Fonts/Noto_Serif/NotoSerif-Regular.ttf"
     }
 
-    property double scaling: Math.min(width / 800, height / 800)
+    property double scaling: Math.min(width / 1024, height / 1024)
 
     Compass {
         anchors.centerIn: parent
-        scale: scaling
+        scale: 0.9 * scaling
 
         NumberAnimation on heading {
             loops: Animation.Infinite
