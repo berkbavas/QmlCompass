@@ -21,8 +21,9 @@ qt_add_qml_module(QmlCompass
     QML_FILES
     Main.qml
     RESOURCES QmlCompass.qrc
-    QML_FILES Compass.qml
+    QML_FILES CompassModern.qml
     SOURCES
+    QML_FILES CompassRetro.qml
 )
 
 

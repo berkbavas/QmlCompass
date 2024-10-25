@@ -14,7 +14,7 @@ Window {
 
     property double scaling: Math.min(width / 1024, height / 1024)
 
-    Compass {
+    CompassModern {
         anchors.centerIn: parent
         scale: 0.9 * scaling
 
@@ -26,4 +26,5 @@ Window {
             duration: 15000
         }
     }
+
 }
